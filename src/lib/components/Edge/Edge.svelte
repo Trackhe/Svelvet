@@ -305,8 +305,8 @@
 			style:cursor={edgeClick || hovering ? 'pointer' : 'move'}
 			style:--prop-target-edge-color={edgeClick || hovering ? targetColor || null : 'transparent'}
 			d={path}
-			on:mousedown={() => {
-				edgeClick();
+			on:mousedown={(e) => {
+				edgeClick(e);
 				if (enableDestroyOnClick) {
 					destroy();
 				}
