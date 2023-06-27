@@ -305,8 +305,8 @@
 			style:cursor={edgeClick || hovering ? 'pointer' : 'move'}
 			style:--prop-target-edge-color={edgeClick || hovering ? targetColor || null : 'transparent'}
 			d={path}
-			on:mousedown={(e) => {
-				edgeClick(e);
+			on:mousedown={() => {
+				edgeClick(edge);
 				if (enableDestroyOnClick) {
 					destroy();
 				}
@@ -315,7 +315,7 @@
 			on:mouseleave={() => (hovering = false)}
 			bind:this={DOMPath}
 		/>
-		<slot {path} {destroy}>
+		<slot {path} {destroy} {edge}>
 			<path
 				id={edgeKey}
 				class="edge"
